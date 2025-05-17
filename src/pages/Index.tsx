@@ -18,7 +18,12 @@ const Index = () => {
     const loadData = async () => {
       try {
         const data = await fetchMediaData();
-        setMediaData(data);
+        // Ověření, že data jsou validní
+        if (data && Array.isArray(data.music) && Array.isArray(data.movies)) {
+          setMediaData(data);
+        } else {
+          throw new Error("Neplatná struktura dat");
+        }
       } catch (error) {
         console.error("Chyba při načítání dat:", error);
         toast({
@@ -26,6 +31,8 @@ const Index = () => {
           description: "Nepodařilo se načíst data ze souboru media.json",
           variant: "destructive",
         });
+        // Nastavíme prázdná data pro případ chyby
+        setMediaData({ music: [], movies: [] });
       } finally {
         setIsLoading(false);
       }
