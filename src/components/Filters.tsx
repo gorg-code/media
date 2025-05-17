@@ -72,7 +72,7 @@ export const MusicFilters: React.FC<MusicFiltersProps> = ({
               <SelectValue placeholder="Formát" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Všechny formáty</SelectItem>
+              <SelectItem value="all">Všechny formáty</SelectItem>
               {formats.map((format) => (
                 <SelectItem key={format} value={format}>
                   {format}
@@ -88,7 +88,7 @@ export const MusicFilters: React.FC<MusicFiltersProps> = ({
               <SelectValue placeholder="Rok vydání" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Všechny roky</SelectItem>
+              <SelectItem value="all">Všechny roky</SelectItem>
               {years.map((year) => (
                 <SelectItem key={year} value={year}>
                   {year}
@@ -105,7 +105,7 @@ export const MusicFilters: React.FC<MusicFiltersProps> = ({
             className="flex space-x-4"
           >
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="" id="all" />
+              <RadioGroupItem value="all" id="all" />
               <Label htmlFor="all">Vše</Label>
             </div>
             <div className="flex items-center space-x-2">
@@ -155,7 +155,7 @@ export const MovieFilters: React.FC<MovieFiltersProps> = ({
               <SelectValue placeholder="Formát" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Všechny formáty</SelectItem>
+              <SelectItem value="all">Všechny formáty</SelectItem>
               {formats.map((format) => (
                 <SelectItem key={format} value={format}>
                   {format}

@@ -26,9 +26,9 @@ interface MusicTabProps {
 const MusicTab: React.FC<MusicTabProps> = ({ musicItems, onDeleteItem, onAddItem }) => {
   const { toast } = useToast();
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedFormat, setSelectedFormat] = useState('');
-  const [selectedYear, setSelectedYear] = useState('');
-  const [selectedType, setSelectedType] = useState('');
+  const [selectedFormat, setSelectedFormat] = useState('all');
+  const [selectedYear, setSelectedYear] = useState('all');
+  const [selectedType, setSelectedType] = useState('all');
   
   // Připravíme seznamy pro filtrování
   const formats = useMemo(() => getAllMusicFormats(musicItems), [musicItems]);
@@ -45,10 +45,10 @@ const MusicTab: React.FC<MusicTabProps> = ({ musicItems, onDeleteItem, onAddItem
         (item.TRACK && item.TRACK.toLowerCase().includes(searchTerm.toLowerCase()));
       
       // Filtr podle formátu
-      const formatMatch = selectedFormat === '' || item.FORMÁT === selectedFormat;
+      const formatMatch = selectedFormat === 'all' || item.FORMÁT === selectedFormat;
       
       // Filtr podle roku
-      const yearMatch = selectedYear === '' || item.ROK.toString() === selectedYear;
+      const yearMatch = selectedYear === 'all' || item.ROK.toString() === selectedYear;
       
       // Filtr podle typu (album/track)
       let typeMatch = true;

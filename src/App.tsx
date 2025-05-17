@@ -21,6 +21,15 @@ const queryClient = new QueryClient({
 const AppContent = () => {
   useEffect(() => {
     console.log("App rendered successfully");
+    
+    // Debug SelectItem issue
+    try {
+      console.log("Checking DOM for Select components...");
+      const selectContents = document.querySelectorAll("[data-radix-select-content]");
+      console.log(`Found ${selectContents.length} select content elements`);
+    } catch (error) {
+      console.error("Error checking Select components:", error);
+    }
   }, []);
 
   return (

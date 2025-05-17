@@ -26,7 +26,7 @@ interface MoviesTabProps {
 const MoviesTab: React.FC<MoviesTabProps> = ({ movieItems, onDeleteItem, onAddItem }) => {
   const { toast } = useToast();
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedFormat, setSelectedFormat] = useState('');
+  const [selectedFormat, setSelectedFormat] = useState('all');
   
   // Připravíme seznamy pro filtrování
   const formats = useMemo(() => getAllMovieFormats(movieItems), [movieItems]);
@@ -41,7 +41,7 @@ const MoviesTab: React.FC<MoviesTabProps> = ({ movieItems, onDeleteItem, onAddIt
         item.REŽIE.toLowerCase().includes(searchTerm.toLowerCase());
       
       // Filtr podle formátu
-      const formatMatch = selectedFormat === '' || item.FORMÁT === selectedFormat;
+      const formatMatch = selectedFormat === 'all' || item.FORMÁT === selectedFormat;
       
       return searchMatch && formatMatch;
     });
