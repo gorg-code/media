@@ -1,0 +1,141 @@
+
+{
+  "music": [
+    {
+      "SKUPINA": "Pink Floyd",
+      "ALBUM": "The Dark Side of the Moon",
+      "TRACK": null,
+      "ROK": 1973,
+      "FORMÁT": "LP"
+    },
+    {
+      "SKUPINA": "Pink Floyd",
+      "ALBUM": null,
+      "TRACK": "Comfortably Numb",
+      "ROK": 1979,
+      "FORMÁT": "CD"
+    },
+    {
+      "SKUPINA": "Led Zeppelin",
+      "ALBUM": "Led Zeppelin IV",
+      "TRACK": null,
+      "ROK": 1971,
+      "FORMÁT": "CD"
+    },
+    {
+      "SKUPINA": "Metallica",
+      "ALBUM": "Master of Puppets",
+      "TRACK": null,
+      "ROK": 1986,
+      "FORMÁT": "CD"
+    },
+    {
+      "SKUPINA": "Queen",
+      "ALBUM": null,
+      "TRACK": "Bohemian Rhapsody",
+      "ROK": 1975,
+      "FORMÁT": "MP3"
+    },
+    {
+      "SKUPINA": "The Beatles",
+      "ALBUM": "Abbey Road",
+      "TRACK": null,
+      "ROK": 1969,
+      "FORMÁT": "LP"
+    },
+    {
+      "SKUPINA": "Radiohead",
+      "ALBUM": "OK Computer",
+      "TRACK": null,
+      "ROK": 1997,
+      "FORMÁT": "CD-R"
+    },
+    {
+      "SKUPINA": "Michael Jackson",
+      "ALBUM": "Thriller",
+      "TRACK": null,
+      "ROK": 1982,
+      "FORMÁT": "CD"
+    },
+    {
+      "SKUPINA": "Nirvana",
+      "ALBUM": null,
+      "TRACK": "Smells Like Teen Spirit",
+      "ROK": 1991,
+      "FORMÁT": "MP3"
+    },
+    {
+      "SKUPINA": "AC/DC",
+      "ALBUM": "Back in Black",
+      "TRACK": null,
+      "ROK": 1980,
+      "FORMÁT": "LP"
+    },
+    {
+      "SKUPINA": "Adele",
+      "ALBUM": "21",
+      "TRACK": null,
+      "ROK": 2011,
+      "FORMÁT": "CD"
+    },
+    {
+      "SKUPINA": "Coldplay",
+      "ALBUM": null,
+      "TRACK": "Yellow",
+      "ROK": 2000,
+      "FORMÁT": "MP3"
+    }
+  ],
+  "movies": [
+    {
+      "JMÉNO": "The Shawshank Redemption",
+      "REŽIE": "Frank Darabont",
+      "FORMÁT": "DVD"
+    },
+    {
+      "JMÉNO": "The Godfather",
+      "REŽIE": "Francis Ford Coppola",
+      "FORMÁT": "MKV"
+    },
+    {
+      "JMÉNO": "Pulp Fiction",
+      "REŽIE": "Quentin Tarantino",
+      "FORMÁT": "DVD"
+    },
+    {
+      "JMÉNO": "The Dark Knight",
+      "REŽIE": "Christopher Nolan",
+      "FORMÁT": "MP4"
+    },
+    {
+      "JMÉNO": "Schindler's List",
+      "REŽIE": "Steven Spielberg",
+      "FORMÁT": "DVD-R"
+    },
+    {
+      "JMÉNO": "Forrest Gump",
+      "REŽIE": "Robert Zemeckis",
+      "FORMÁT": "AVI"
+    },
+    {
+      "JMÉNO": "The Matrix",
+      "REŽIE": "The Wachowskis",
+      "FORMÁT": "MPG"
+    },
+    {
+      "JMÉNO": "Gladiator",
+      "REŽIE": "Ridley Scott",
+      "FORMÁT": "TS"
+    },
+    {
+      "JMÉNO": "Interstellar",
+      "REŽIE": "Christopher Nolan",
+      "FORMÁT": "MKV"
+    },
+    {
+      "JMÉNO": "The Silence of the Lambs",
+      "REŽIE": "Jonathan Demme",
+      "FORMÁT": "DVD"
+    }
+  ]
+}
