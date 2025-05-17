@@ -17,10 +17,14 @@ const Index = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
+        console.log("Fetching media data...");
         const data = await fetchMediaData();
+        console.log("Fetched data:", data);
+        
         // Ověření, že data jsou validní
         if (data && Array.isArray(data.music) && Array.isArray(data.movies)) {
           setMediaData(data);
+          console.log("Media data set successfully");
         } else {
           throw new Error("Neplatná struktura dat");
         }

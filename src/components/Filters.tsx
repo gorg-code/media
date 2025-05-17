@@ -1,24 +1,42 @@
 
 import React from 'react';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Separator } from '@/components/ui/separator';
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+import { Search } from "lucide-react";
 
-interface MusicFilterProps {
+// Interface pro MusicFilters
+interface MusicFiltersProps {
   searchTerm: string;
   onSearchChange: (value: string) => void;
   selectedFormat: string;
   formats: string[];
   onFormatChange: (value: string) => void;
   selectedYear: string;
-  years: number[];
+  years: string[];
   onYearChange: (value: string) => void;
   selectedType: string;
   onTypeChange: (value: string) => void;
 }
 
-export const MusicFilters: React.FC<MusicFilterProps> = ({
+// Interface pro MovieFilters
+interface MovieFiltersProps {
+  searchTerm: string;
+  onSearchChange: (value: string) => void;
+  selectedFormat: string;
+  formats: string[];
+  onFormatChange: (value: string) => void;
+}
+
+// Komponenta pro filtry hudby
+export const MusicFilters: React.FC<MusicFiltersProps> = ({
   searchTerm,
   onSearchChange,
   selectedFormat,
@@ -31,76 +49,82 @@ export const MusicFilters: React.FC<MusicFilterProps> = ({
   onTypeChange,
 }) => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm mb-4 border">
-      <h2 className="text-lg font-semibold mb-3">Filtry</h2>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <div className="space-y-2">
-          <Label htmlFor="search">Vyhledávání</Label>
+    <div className="bg-white p-4 rounded-lg shadow-sm border mb-6">
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold mb-2">Filtry</h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="relative">
+          <Search className="absolute top-2.5 left-2.5 h-4 w-4 text-gray-400" />
           <Input
-            id="search"
+            type="text"
             placeholder="Hledat..."
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
+            className="pl-9"
           />
         </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="format">Formát</Label>
+
+        <div>
           <Select value={selectedFormat} onValueChange={onFormatChange}>
-            <SelectTrigger id="format">
-              <SelectValue placeholder="Všechny formáty" />
+            <SelectTrigger>
+              <SelectValue placeholder="Formát" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="">Všechny formáty</SelectItem>
               {formats.map((format) => (
-                <SelectItem key={format} value={format}>{format}</SelectItem>
+                <SelectItem key={format} value={format}>
+                  {format}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="year">Rok</Label>
+
+        <div>
           <Select value={selectedYear} onValueChange={onYearChange}>
-            <SelectTrigger id="year">
-              <SelectValue placeholder="Všechny roky" />
+            <SelectTrigger>
+              <SelectValue placeholder="Rok vydání" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="">Všechny roky</SelectItem>
               {years.map((year) => (
-                <SelectItem key={year} value={year.toString()}>{year}</SelectItem>
+                <SelectItem key={year} value={year}>
+                  {year}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="type">Typ</Label>
-          <Select value={selectedType} onValueChange={onTypeChange}>
-            <SelectTrigger id="type">
-              <SelectValue placeholder="Vše" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="">Vše</SelectItem>
-              <SelectItem value="album">Pouze alba</SelectItem>
-              <SelectItem value="track">Pouze tracky</SelectItem>
-            </SelectContent>
-          </Select>
+
+        <div>
+          <RadioGroup
+            value={selectedType}
+            onValueChange={onTypeChange}
+            className="flex space-x-4"
+          >
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="" id="all" />
+              <Label htmlFor="all">Vše</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="album" id="album" />
+              <Label htmlFor="album">Alba</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="track" id="track" />
+              <Label htmlFor="track">Skladby</Label>
+            </div>
+          </RadioGroup>
         </div>
       </div>
     </div>
   );
 };
 
-interface MovieFilterProps {
-  searchTerm: string;
-  onSearchChange: (value: string) => void;
-  selectedFormat: string;
-  formats: string[];
-  onFormatChange: (value: string) => void;
-}
-
-export const MovieFilters: React.FC<MovieFilterProps> = ({
+// Komponenta pro filtry filmů
+export const MovieFilters: React.FC<MovieFiltersProps> = ({
   searchTerm,
   onSearchChange,
   selectedFormat,
@@ -108,29 +132,34 @@ export const MovieFilters: React.FC<MovieFilterProps> = ({
   onFormatChange,
 }) => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm mb-4 border">
-      <h2 className="text-lg font-semibold mb-3">Filtry</h2>
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="space-y-2">
-          <Label htmlFor="search">Vyhledávání</Label>
+    <div className="bg-white p-4 rounded-lg shadow-sm border mb-6">
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold mb-2">Filtry</h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="relative">
+          <Search className="absolute top-2.5 left-2.5 h-4 w-4 text-gray-400" />
           <Input
-            id="search"
+            type="text"
             placeholder="Hledat..."
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
+            className="pl-9"
           />
         </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="format">Formát</Label>
+
+        <div>
           <Select value={selectedFormat} onValueChange={onFormatChange}>
-            <SelectTrigger id="format">
-              <SelectValue placeholder="Všechny formáty" />
+            <SelectTrigger>
+              <SelectValue placeholder="Formát" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="">Všechny formáty</SelectItem>
               {formats.map((format) => (
-                <SelectItem key={format} value={format}>{format}</SelectItem>
+                <SelectItem key={format} value={format}>
+                  {format}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
